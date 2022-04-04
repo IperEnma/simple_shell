@@ -6,13 +6,9 @@
  */
 int main(int argc, char *argv[])
 {
-	char *aux = NULL;
-	char *env = NULL;
-	char *path = NULL;
-	char *path_concat = NULL;
+	char *env = NULL, *path_concat = NULL;
 	int i = 0;
-	list_t *directorys = NULL;
-	list_t *input = NULL;
+	list_t *directorys = NULL, *input = NULL;
 
 	env = getpath(); /*obtenemos path de la variable environ*/
 	tokenizador(env, &directorys, ":"); /*tokenizamos y enviamos a una lista los directorios*/
@@ -27,13 +23,24 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; argv[i]; i++)
 			addnode(&input, argv[i]);
-		path_concat = _concat(directorys, input);
+
+		if (*argv[1] != '/')
+			path_concat = _concat(directorys, input);
+		else
+		{
+			if (get_stat(argv[1]) == 0)
+				path_concat = argv[1];
+			else
+				path_concat = "comando no encontrado";
+		}
+
 		if (strcmp(path_concat, "Comando no encontrado") == 0)
 			printf("Comando no encontrado\n");
 		else
 		{
 			command(input, path_concat);
-			free(path_concat);
+			if (*argv[1] != '/')
+				free(path_concat);
 		}
 	}
 

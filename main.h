@@ -25,4 +25,5 @@ char *getpath();
 void tokenizador(char *env, list_t **directorys, const char *delim);
 char *_concat(list_t *dir, list_t *input);
 void command(list_t *head, char *path_concat);
+int get_stat(char *path_concat);
 #endif
