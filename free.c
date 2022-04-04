@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * free_nodes - free list
  * @head: first node
@@ -12,7 +13,6 @@ void free_nodes(list_t *head)
 	{
 		auxfree = aux;
 		aux = aux->next;
-		free(auxfree->s);
 		free(auxfree);
 	}
 }

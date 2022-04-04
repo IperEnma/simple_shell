@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 /**
  * getpath - get path from environ
  * Return: environ
@@ -6,7 +6,7 @@
 char *getpath()
 {
 	extern char **environ;
-	char *pathcompare = "PATH";
+	char *pathcompare = "PATH=";
 	int i = 0, j = 0;
 
 	for (i = 0; environ[i]; i++)
@@ -20,9 +20,8 @@ char *getpath()
 			else
 				break;
 		}
-		if (j == 4)
+		if (j == 5)
 		{
-			*(environ[i]++);
 			break;
 		}
 	}

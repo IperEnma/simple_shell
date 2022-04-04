@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * addnode - create list
  * @head: irst node
@@ -7,13 +8,13 @@
 void addnode(list_t **head, char *s)
 {
 	list_t *headaux = *head;
-	list_t_ *new;
+	list_t *new;
 
 	if (s == NULL)
 		printf("error al crear la lista\n");
 	else
 	{
-		new = malloc(sizeof(tokene));
+		new = malloc(sizeof(list_t));
 		if (new == NULL)
 		{
 			printf("error al crear la lisa\n");
@@ -37,4 +38,5 @@ void addnode(list_t **head, char *s)
 				*head = new;
 			}
 		}
+	}
 }
