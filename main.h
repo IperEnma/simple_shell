@@ -1,5 +1,12 @@
 #ifndef SIMPLESHELL
 #define SIMPLESHELL
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <sys/wait.h>
 /**
  * struct list_s - structure for the list
  * @s: parameters
@@ -8,7 +15,14 @@
 typedef struct list_s
 {
 	char *s;
-	struct tokenizer *next;
+	struct list_s *next;
 } list_t;
+void print_list(list_t *head);
 char *_strdup(char *str);
+void addnode(list_t **head, char *s);
+void free_nodes(list_t *head);
+char *getpath();
+void tokenizador(char *env, list_t **directorys, const char *delim);
+char *_concat(list_t *dir, list_t *input);
+void command(list_t *head, char *path_concat);
 #endif
