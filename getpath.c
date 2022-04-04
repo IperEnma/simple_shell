@@ -15,7 +15,7 @@ char *getpath()
 		{
 			if (*(environ[i]) == pathcompare[j])
 			{
-				*(environ[i]++);
+				environ[i]++;
 			}
 			else
 				break;
