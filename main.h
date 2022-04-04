@@ -1,18 +1,14 @@
+#ifndef SIMPLESHELL
+#define SIMPLESHELL
 /**
- *
- *
- *
+ * struct list_s - structure for the list
+ * @s: parameters
+ * @next: node next
  */
 typedef struct list_s
 {
 	char *s;
-		struct tokenizer *next;
+	struct tokenizer *next;
 } list_t;
-/**
- *
- *
- *
- */
-int main(int argc, char *arg)
-{
-}
+char *_strdup(char *str);
+#endif
