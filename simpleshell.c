@@ -24,16 +24,20 @@ int main()
 			printf("\n");
 			break;
 		}
+		buffer[strlen(buffer) - 1] = '\0';
 		space = checkspace(buffer);
 		if (buffer[0] != '\n' && space != 0)
 		{
-			buffer[strlen(buffer) - 1] = '\0';
+			printf("soy un espacio\n");
 			tokenizador(buffer, &input, " ");
 			if (input->s[0] == '/')
 			{
 				stat = get_stat(input->s);
 				if (stat == 0)
+				{
 					path_concat = input->s;
+					command(input, path_concat);
+				}
 				else
 					dprintf(2, "No es un archivo ni un directorio\n");
 			}
@@ -41,7 +45,7 @@ int main()
 			{
 				path_concat =_concat(directorys, input);
 				if (strcmp(path_concat, "ERROR") == 0)
-					dprintf(2, "Comando no encontrado");
+					dprintf(2, "Comando no encontrado\n");
 				else
 					command(input, path_concat);
 			}
