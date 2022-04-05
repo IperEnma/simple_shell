@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/wait.h>
+extern char **environ;
 /**
  * struct list_s - structure for the list
  * @s: parameters
@@ -26,4 +27,5 @@ void tokenizador(char *env, list_t **directorys, const char *delim);
 char *_concat(list_t *dir, list_t *input);
 void command(list_t *head, char *path_concat);
 int get_stat(char *path_concat);
+int checkspace(char *s);
 #endif

@@ -47,5 +47,5 @@ char *_concat(list_t *dir, list_t *input)
         	}
 		dir = dir->next;
 	}
-	return ("Comando no encontrado");
+	return ("ERROR");
 }

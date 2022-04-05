@@ -4,48 +4,51 @@
  *
  *
  */
-int main(int argc, char *argv[])
+int main()
 {
-	char *env = NULL, *path_concat = NULL;
-	int i = 0;
+	char *env = NULL, *path_concat = NULL, *buffer;
+	size_t size = 0;
+	ssize_t bytes = 0;
+	int space = 0, stat = 0;
 	list_t *directorys = NULL, *input = NULL;
 
 	env = getpath(); /*obtenemos path de la variable environ*/
 	tokenizador(env, &directorys, ":"); /*tokenizamos y enviamos a una lista los directorios*/
 
-	print_list(directorys); /* FUNCION TEMPORAL PARA COMPROBAR EL STATUS DE LA LISTA*/
-
-	if (argc == 1)
+	while(1)
 	{
-		
-	}
-	else
-	{
-		for (i = 1; argv[i]; i++)
-			addnode(&input, argv[i]);
-
-		if (*argv[1] != '/')
-			path_concat = _concat(directorys, input);
-		else
+		printf("MY-SHELL: ");
+		bytes = getline(&buffer, &size, stdin);
+		if (bytes == -1)
 		{
-			if (get_stat(argv[1]) == 0)
-				path_concat = argv[1];
+			printf("\n");
+			break;
+		}
+		space = checkspace(buffer);
+		if (buffer[0] != '\n' && space != 0)
+		{
+			buffer[strlen(buffer) - 1] = '\0';
+			tokenizador(buffer, &input, " ");
+			if (input->s[0] == '/')
+			{
+				stat = get_stat(input->s);
+				if (stat == 0)
+					path_concat = input->s;
+				else
+					dprintf(2, "No es un archivo ni un directorio\n");
+			}
 			else
-				path_concat = "comando no encontrado";
-		}
-
-		if (strcmp(path_concat, "Comando no encontrado") == 0)
-			printf("Comando no encontrado\n");
-		else
-		{
-			command(input, path_concat);
-			if (*argv[1] != '/')
-				free(path_concat);
+			{
+				path_concat =_concat(directorys, input);
+				if (strcmp(path_concat, "ERROR") == 0)
+					dprintf(2, "Comando no encontrado");
+				else
+					command(input, path_concat);
+			}
+			free_nodes(input);
+			input = NULL;
 		}
 	}
-
-	print_list(input);
-	free_nodes(input);
-	free_nodes(directorys);
+	free(buffer);
 	return (0);
 }
