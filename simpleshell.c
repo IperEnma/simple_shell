@@ -6,7 +6,7 @@
  */
 int main()
 {
-	char *env = NULL, *path_concat = NULL, *buffer;
+	char *env = NULL, *path_concat = NULL, *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
 	int space = 0, stat = 0;
@@ -28,7 +28,6 @@ int main()
 		space = checkspace(buffer);
 		if (buffer[0] != '\n' && space != 0)
 		{
-			printf("soy un espacio\n");
 			tokenizador(buffer, &input, " ");
 			if (input->s[0] == '/')
 			{
@@ -48,11 +47,13 @@ int main()
 					dprintf(2, "Comando no encontrado\n");
 				else
 					command(input, path_concat);
+				free(path_concat);
 			}
 			free_nodes(input);
 			input = NULL;
 		}
 	}
 	free(buffer);
+	free_nodes(directorys);
 	return (0);
 }
