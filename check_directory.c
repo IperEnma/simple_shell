@@ -11,7 +11,7 @@ int check_directory(list_t *input)
 
 	stat = get_stat(input->s);
 	if (stat != 0)
-		dprintf(2, "No es un archivo no un directorio\n");
+		dprintf(2, "No es un archivo ni un directorio\n");
 	else
 	{
 		file = regular_file(input->s);

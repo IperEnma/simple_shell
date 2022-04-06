@@ -36,4 +36,5 @@ int regular_file(char *s);
 int check_directory(list_t *input);
 int check_files(list_t *directorys, list_t *input);
 int funexit(char *buffer);
+int checkslash(char *s);
 #endif
