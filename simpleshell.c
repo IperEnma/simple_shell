@@ -10,7 +10,7 @@ int main()
 	char *env = NULL, *path_concat = NULL, *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
-	int space = 0, stat = 0;
+	int space = 0, stat = 0, file = 0;
 	list_t *directorys = NULL, *input = NULL;
 
 	env = getpath(); /*obtenemos path de la variable environ*/
@@ -34,13 +34,19 @@ int main()
 			if (input->s[0] == '/')
 			{
 				stat = get_stat(input->s);
-				if (stat == 0)
-				{
-					path_concat = input->s;
-					command(input, path_concat);
-				}
+				if (stat != 0)
+					 dprintf(2, "No es un archivo ni un directorio\n");
 				else
-					dprintf(2, "No es un archivo ni un directorio\n");
+				{
+					file = regular_file(input->s);
+					if (file == 0)
+						dprintf(2, "Es un directorio\n");
+					else
+					{
+						path_concat = input->s;
+						command(input, path_concat);
+					}
+				}
 			}
 			else
 			{

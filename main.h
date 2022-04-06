@@ -29,4 +29,5 @@ void command(list_t *head, char *path_concat);
 int get_stat(char *path_concat);
 int checkspace(char *s);
 void function_signal(int sig);
+int regular_file(char *s);
 #endif

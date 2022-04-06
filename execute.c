@@ -7,7 +7,7 @@
 void command(list_t *head, char *path_concat)
 {
 	pid_t pid = 0;
-	int i = 0, directory = 0;
+	int i = 0;
 	list_t *aux = NULL;
 	char **arg = NULL;
 	
@@ -35,13 +35,7 @@ void command(list_t *head, char *path_concat)
 	if (pid == -1)
 		perror("ERROR FORKING\n");
 	if (pid == 0)
-	{
-		if (path_concat)
-			directory = execve(path_concat, arg, NULL);
-		if (directory == -1)
-			dprintf(2, "Es un directorio\n");
-				
-	}
+		execve(path_concat, arg, NULL);
 	else
 		wait(NULL);
 	free(arg);
