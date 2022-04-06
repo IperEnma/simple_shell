@@ -10,7 +10,7 @@ int main()
 	char *env = NULL, *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
-	int space = 0;
+	int space = 0, status = 0;
 	list_t *directorys = NULL, *input = NULL;
 
 	env = getpath(); /*obtenemos path de la variable environ*/
@@ -33,11 +33,11 @@ int main()
 			tokenizador(buffer, &input, " ");
 			if (input->s[0] == '/')
 			{
-				check_directory(input);
+				status = check_directory(input);
 			}
 			else
 			{
-				check_files(directorys, input);
+				status = check_files(directorys, input);
 			}
 			free_nodes(input);
 			input = NULL;
@@ -47,5 +47,5 @@ int main()
 	}
 	free(buffer);
 	free_nodes(directorys);
-	return (0);
+	return (status);
 }

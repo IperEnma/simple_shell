@@ -4,10 +4,10 @@
  *
  *
  */
-void command(list_t *head, char *path_concat)
+int command(list_t *head, char *path_concat)
 {
 	pid_t pid = 0;
-	int i = 0;
+	int i = 0, status = 0;
 	list_t *aux = NULL;
 	char **arg = NULL;
 	
@@ -20,7 +20,7 @@ void command(list_t *head, char *path_concat)
 	arg = malloc(i * sizeof(char *));
 	if (!arg)
 	{
-		printf("ERROR MALLOC");
+		perror("MY-SHELL");
 		exit(98);
 	}
 	aux = head;
@@ -33,10 +33,15 @@ void command(list_t *head, char *path_concat)
 
 	pid = fork();	
 	if (pid == -1)
-		perror("ERROR FORKING\n");
+		perror("MY-SHELL");
 	if (pid == 0)
+	{
 		execve(path_concat, arg, NULL);
+	}
 	else
-		wait(NULL);
+	{
+		wait(&status);
+	}
 	free(arg);
+	return (WEXITSTATUS(status));
 }

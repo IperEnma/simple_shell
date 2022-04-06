@@ -1,5 +1,6 @@
 #ifndef SIMPLESHELL
 #define SIMPLESHELL
+#define EISDIR 21
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -7,6 +8,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <errno.h>
+extern int errno;
 extern char **environ;
 /**
  * struct list_s - structure for the list
@@ -25,9 +28,11 @@ void free_nodes(list_t *head);
 char *getpath();
 void tokenizador(char *env, list_t **directorys, const char *delim);
 char *_concat(list_t *dir, list_t *input);
-void command(list_t *head, char *path_concat);
+int command(list_t *head, char *path_concat);
 int get_stat(char *path_concat);
 int checkspace(char *s);
 void function_signal(int sig);
 int regular_file(char *s);
+int check_directory(list_t *input);
+int check_files(list_t *directorys, list_t *input);
 #endif
