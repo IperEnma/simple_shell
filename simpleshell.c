@@ -7,10 +7,10 @@ volatile sig_atomic_t stop = 0;
  */
 int main()
 {
-	char *env = NULL, *path_concat = NULL, *buffer = NULL;
+	char *env = NULL, *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
-	int space = 0, stat = 0, file = 0;
+	int space = 0;
 	list_t *directorys = NULL, *input = NULL;
 
 	env = getpath(); /*obtenemos path de la variable environ*/
@@ -33,31 +33,11 @@ int main()
 			tokenizador(buffer, &input, " ");
 			if (input->s[0] == '/')
 			{
-				stat = get_stat(input->s);
-				if (stat != 0)
-					 dprintf(2, "No es un archivo ni un directorio\n");
-				else
-				{
-					file = regular_file(input->s);
-					if (file == 0)
-						dprintf(2, "Es un directorio\n");
-					else
-					{
-						path_concat = input->s;
-						command(input, path_concat);
-					}
-				}
+				check_directory(input);
 			}
 			else
 			{
-				path_concat =_concat(directorys, input);
-				if (strcmp(path_concat, "ERROR") == 0)
-					dprintf(2, "Comando no encontrado\n");
-				else
-				{
-					command(input, path_concat);
-					free(path_concat);
-				}
+				check_files(directorys, input);
 			}
 			free_nodes(input);
 			input = NULL;
