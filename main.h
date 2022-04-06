@@ -28,4 +28,5 @@ char *_concat(list_t *dir, list_t *input);
 void command(list_t *head, char *path_concat);
 int get_stat(char *path_concat);
 int checkspace(char *s);
+void function_signal(int sig);
 #endif

@@ -1,4 +1,5 @@
 #include "main.h"
+volatile sig_atomic_t stop = 0;
 /**
  *
  *
@@ -14,10 +15,11 @@ int main()
 
 	env = getpath(); /*obtenemos path de la variable environ*/
 	tokenizador(env, &directorys, ":"); /*tokenizamos y enviamos a una lista los directorios*/
-
-	while(1)
+	signal(SIGINT, function_signal);	
+	while(!stop)
 	{
-		printf("MY-SHELL: ");
+		if (isatty(STDIN_FILENO) == 1)
+			printf("MY-SHELL: ");
 		bytes = getline(&buffer, &size, stdin);
 		if (bytes == -1)
 		{
@@ -46,12 +48,16 @@ int main()
 				if (strcmp(path_concat, "ERROR") == 0)
 					dprintf(2, "Comando no encontrado\n");
 				else
+				{
 					command(input, path_concat);
-				free(path_concat);
+					free(path_concat);
+				}
 			}
 			free_nodes(input);
 			input = NULL;
 		}
+		if (isatty(STDIN_FILENO) != 1)
+			break;
 	}
 	free(buffer);
 	free_nodes(directorys);
