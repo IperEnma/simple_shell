@@ -21,7 +21,7 @@ void addnode(list_t **head, char *s)
 		}
 		else
 		{
-			new->s = s;
+			new->s = strdup(s);
 			new->next = NULL;
 
 			if (s && *head)

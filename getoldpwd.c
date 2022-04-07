@@ -7,7 +7,7 @@ char *getoldpwd()
 {
 	char *copy = NULL;
         char *pathcompare = "OLDPWD=";
-        int i = 0, j = 0;
+        int i = 0;
 
         for (i = 0; environ[i]; i++)
         {

@@ -14,17 +14,19 @@ int funexit(char *buffer)
 		if (buffer[i] == exit[j])
 		{
 			j++;
-			if (j == 4)
+			if (j == 4 && buffer[i + 1] == ' ')
 			{
 				while (buffer[i])
 				{
 					i++;	
 					if (buffer[i] != ' ')
-						return (0);
+						return (1);
 				}
 			}
+			if (j == 4 && buffer[i + 1] == '\0')
+				return (1);
 		}
 			 
 	}
-	return (1);
+	return (0);
 }

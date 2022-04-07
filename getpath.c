@@ -7,7 +7,7 @@ char *getpath()
 {
 	char *copy = NULL;
 	char *pathcompare = "PATH=";
-	int i = 0, j = 0;
+	int i = 0;
 
 	for (i = 0; environ[i]; i++)
 	{

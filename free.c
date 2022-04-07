@@ -13,6 +13,7 @@ void free_nodes(list_t *head)
 	{
 		auxfree = aux;
 		aux = aux->next;
+		free(auxfree->s);
 		free(auxfree);
 	}
 }
