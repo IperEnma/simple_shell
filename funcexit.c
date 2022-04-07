@@ -11,22 +11,35 @@ int funexit(char *buffer)
 
 	for (i = 0; buffer[i]; i++)
 	{
-		if (buffer[i] == exit[j])
+		if (buffer[i] == ' ')
+	       		continue;
+		else
 		{
-			j++;
-			if (j == 4 && buffer[i + 1] == ' ')
+			if (buffer[i] == exit[j])
 			{
 				while (buffer[i])
 				{
-					i++;	
-					if (buffer[i] != ' ')
-						return (1);
+					if (buffer[i] == exit[j])
+					{
+						i++;
+						j++;
+					}
+					if (j == 3)
+					{
+						while (buffer[i])
+						{
+							i++;
+							if (buffer[i] == '\0')
+								return (1);
+							if (buffer[i] != ' ')
+								return(0);
+						}
+					}
 				}
 			}
-			if (j == 4 && buffer[i + 1] == '\0')
-				return (1);
-		}
-			 
+			else
+				return (0);
+		}		
 	}
 	return (0);
 }
