@@ -19,11 +19,6 @@ int funexit(char *buffer)
 			{
 				while (buffer[i])
 				{
-					if (buffer[i] == exit[j])
-					{
-						i++;
-						j++;
-					}
 					if (j == 3)
 					{
 						while (buffer[i])
@@ -35,6 +30,13 @@ int funexit(char *buffer)
 								return(0);
 						}
 					}
+					if (buffer[i] == exit[i])
+					{
+						i++;
+						j++;
+					}
+					else
+						return (0);
 				}
 			}
 			else
