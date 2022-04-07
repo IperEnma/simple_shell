@@ -5,25 +5,18 @@
  */
 char *getpath()
 {
-	extern char **environ;
+	char *copy = NULL;
 	char *pathcompare = "PATH=";
 	int i = 0, j = 0;
 
 	for (i = 0; environ[i]; i++)
 	{
-		for (j = 0; pathcompare[j]; j++)
-		{
-			if (*(environ[i]) == pathcompare[j])
+			if (strncmp(environ[i], pathcompare, 5) == 0)
 			{
-				environ[i]++;
+				copy = strdup(environ[i]);
+				return(copy);
 			}
-			else
-				break;
-		}
-		if (j == 5)
-		{
-			break;
-		}
 	}
-	return (environ[i]);
+	copy = strdup(environ[i]);
+	return (copy);
 }

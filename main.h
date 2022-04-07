@@ -37,4 +37,8 @@ int check_directory(list_t *input);
 int check_files(list_t *directorys, list_t *input);
 int funexit(char *buffer);
 int checkslash(char *s);
+char **cpy_environ();
+void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd);
+char *getpwd();
+char *getoldpwd();
 #endif

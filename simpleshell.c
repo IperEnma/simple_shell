@@ -6,14 +6,16 @@
  */
 int main()
 {
-	char *env = NULL, *buffer = NULL;
+	char *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
 	int space = 0, status = 0, exitstatus = 1, slash = 0, i = 0;
-	list_t *directorys = NULL, *input = NULL;
+	list_t *directorys = NULL, *pwd = NULL, *old_pwd = NULL, *input = NULL;
 
-	env = getpath(); /*obtenemos path de la variable environ*/
-	tokenizador(env, &directorys, ":"); /*tokenizamos y enviamos a una lista los directorios*/
+	dirs(&directorys, &pwd, &old_pwd);
+	print_list(old_pwd);
+	print_list(pwd);
+	print_list(directorys);
 	signal(SIGINT, function_signal);	
 	while(1)
 	{
@@ -45,6 +47,8 @@ int main()
 			break;
 	}
 	free(buffer);
+	free_nodes(old_pwd);
+	free_nodes(pwd);
 	free_nodes(directorys);
 	return (status);
 }
