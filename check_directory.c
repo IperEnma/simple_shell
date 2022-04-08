@@ -11,12 +11,12 @@ int check_directory(list_t *input)
 
 	stat = get_stat(input->s);
 	if (stat != 0)
-		dprintf(2, "No es un archivo ni un directorio\n");
+		perror("");
 	else
 	{
 		file = regular_file(input->s);
 		if (file == 0)
-			dprintf(2, "Es un directorio\n");
+			perror("");
 		else
 		{
 			path_concat = input->s;

@@ -11,7 +11,7 @@ int check_files(list_t *directorys, list_t *input)
 
 	path_concat =_concat(directorys, input);
 	if (strcmp(path_concat, "ERROR") == 0)
-		dprintf(2, "Comando no encontrado\n");
+		perror("");
 	else
 	{
 		status = command(input, path_concat);

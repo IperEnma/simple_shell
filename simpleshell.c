@@ -14,11 +14,13 @@ int main()
 
 	dirs(&directorys, &pwd, &old_pwd);
 	signal(SIGINT, function_signal);	
-	while(1)
+	while(EOF)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			dprintf(1,"MY-SHELL: ");
-		bytes = getline(&buffer, &size, stdin);
+		do{
+			bytes = getline(&buffer, &size, stdin);
+		} while(buffer[0] == '\n' && bytes > 1);
 		if (bytes == -1)
 		{
 			printf("\n");
@@ -27,7 +29,9 @@ int main()
 		buffer[strlen(buffer) - 1] = '\0';
 		exitstatus = checkbuild(buffer);
 		if (exitstatus == 1)
+		{	freeall(buffer, old_pwd, pwd, directorys);
 			exit(EXIT_SUCCESS);
+		}
 		space = checkspace(buffer);
 		slash = checkslash(buffer);
 		if (buffer[0] != '\n' && space != 0)
@@ -40,8 +44,6 @@ int main()
 			free_nodes(input);
 			input = NULL;
 		}
-		if (isatty(STDIN_FILENO) != 1)
-			break;
 	}
 	freeall(buffer, old_pwd, pwd, directorys);
 	return (status);
