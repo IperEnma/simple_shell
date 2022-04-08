@@ -16,12 +16,12 @@ int funexit(char *buffer)
 		else
 		{
 			if (buffer[i] == exit[j])
-			{
-				while (buffer[i])
+			{	
+				while (j < 5)
 				{
-					if (j == 3)
+					if (j == 4)
 					{
-						while (buffer[i])
+						while (j < 5)
 						{
 							i++;
 							if (buffer[i] == '\0')

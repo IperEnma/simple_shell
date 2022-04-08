@@ -17,11 +17,11 @@ int funenv(char *buffer)
 		{
 			if (buffer[i] == exit[j])
 			{
-				while (buffer[i])
+				while (j < 4)
 				{
-					if (j == 2)
+					if (j == 3)
 					{
-						while (buffer[i])
+						while (j < 4)
 						{
 							i++;
 							if (buffer[i] == '\0')
