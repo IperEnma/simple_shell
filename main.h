@@ -42,4 +42,5 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd);
 char *getpwd();
 char *getoldpwd();
 void freeall(char *buffer, list_t *old_pwd, list_t *pwd, list_t *directorys);
+void funenv();
 #endif

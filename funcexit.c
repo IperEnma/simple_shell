@@ -12,7 +12,7 @@ int funexit(char *buffer)
 	for (i = 0; buffer[i]; i++)
 	{
 		if (buffer[i] == ' ')
-	       		continue;
+	       		;
 		else
 		{
 			if (buffer[i] == exit[j])
@@ -30,7 +30,7 @@ int funexit(char *buffer)
 								return(0);
 						}
 					}
-					if (buffer[i] == exit[i])
+					if (buffer[i] == exit[j])
 					{
 						i++;
 						j++;
@@ -43,5 +43,5 @@ int funexit(char *buffer)
 				return (0);
 		}		
 	}
-	return (0);
+	return (1);
 }
