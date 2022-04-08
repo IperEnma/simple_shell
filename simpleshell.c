@@ -25,8 +25,7 @@ int main()
 			break;
 		}
 		buffer[strlen(buffer) - 1] = '\0';
-		funenv();
-		exitstatus = funexit(buffer);
+		exitstatus = checkbuild(buffer);
 		if (exitstatus == 1)
 			exit(EXIT_SUCCESS);
 		space = checkspace(buffer);
