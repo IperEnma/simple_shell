@@ -27,6 +27,7 @@ int main()
 			break;
 		}
 		buffer[strlen(buffer) - 1] = '\0';
+		suprtab(buffer);
 		exitstatus = checkbuild(buffer);
 		if (exitstatus == 1)
 		{	freeall(buffer, old_pwd, pwd, directorys);
@@ -34,7 +35,7 @@ int main()
 		}
 		space = checkspace(buffer);
 		slash = checkslash(buffer);
-		if (buffer[0] != '\n' && space != 0)
+		if (space != 0)
 		{
 			tokenizador(buffer, &input, " ");
 			if (slash == 1)

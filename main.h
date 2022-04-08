@@ -44,4 +44,5 @@ char *getoldpwd();
 void freeall(char *buffer, list_t *old_pwd, list_t *pwd, list_t *directorys);
 int funenv(char *buffer);
 int checkbuild(char *buffer);
+void suprtab(char *buffer);
 #endif
