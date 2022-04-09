@@ -11,7 +11,7 @@ char *getpwd()
 
         for (i = 0; environ[i]; i++)
         {
-		if (strncmp(environ[i], pathcompare, 4) == 0)
+		if (_strncmp(environ[i], pathcompare, 4) == 0)
 		{
 			copy = strdup(environ[i]);
 			return (copy);
