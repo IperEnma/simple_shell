@@ -26,9 +26,7 @@ int main()
 			printf("\n");
 			break;
 		}
-		buffer[strlen(buffer) - 1] = '\0';
-		suprtab(buffer);
-		exitstatus = checkbuild(buffer);
+		exitstatus = suprandbuild(buffer);
 		if (exitstatus == 1)
 		{	freeall(buffer, old_pwd, pwd, directorys);
 			exit(EXIT_SUCCESS);
