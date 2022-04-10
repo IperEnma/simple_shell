@@ -23,7 +23,8 @@ int main()
 		} while(buffer[0] == '\n' && bytes > 1);
 		if (bytes == -1)
 		{
-			printf("\n");
+			if (isatty(STDIN_FILENO) == 1)
+				printf("\n");
 			break;
 		}
 		exitstatus = suprandbuild(buffer);
