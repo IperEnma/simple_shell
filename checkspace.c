@@ -1,7 +1,7 @@
 /**
- *
- *
- *
+ * checkspace - check if the buffer only has spaces
+ * @s: buffer
+ * Return: 0 only espace or 1 other characters
  */
 int checkspace(char *s)
 {

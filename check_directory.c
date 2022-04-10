@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * check_directory - check existence of directory
+ * @input: received directory by user
+ * Return: status
  */
 int check_directory(list_t *input)
 {

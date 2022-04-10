@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- *
- *
+ * cpy_environ - copy line from env
+ * Return: line
  *
  */
 char **cpy_environ()
@@ -11,7 +11,7 @@ char **cpy_environ()
 
 	for (i = 0; environ[i]; i++)
 	;
-	
+
 	envir = malloc(i * (sizeof(char *)));
 
 	for (i = 0; environ[i]; i++)

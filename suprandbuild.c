@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
- *
+ * suprandbuild - tasks perform with buffer
+ * @buffer: received command
+ * Return: 0 or 1 if exit
  */
 int suprandbuild(char *buffer)
 {

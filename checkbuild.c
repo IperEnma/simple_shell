@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * checkbuild - check exit to env, builtin functions
+ * @buffer: received command
+ * Return: 0 no exit or 1 exit
  */
 int checkbuild(char *buffer)
 {

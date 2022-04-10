@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * suprtab - change tab to spaces
+ * @buffer: received command
+ * Return: void
  */
 void suprtab(char *buffer)
 {

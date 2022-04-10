@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- *
- *
- *
+ * command - send directory or command to execve
+ * @head: list with directorys
+ * @path_concat: command concatenate
+ * Return: status execve
  */
 int command(list_t *head, char *path_concat)
 {
@@ -10,7 +11,7 @@ int command(list_t *head, char *path_concat)
 	int i = 0, status = 0;
 	list_t *aux = NULL;
 	char **arg = NULL;
-	
+
 	aux = head;
 	for (i = 0; aux; i++)
 	{
@@ -31,7 +32,7 @@ int command(list_t *head, char *path_concat)
 	}
 	arg[i] = NULL;
 
-	pid = fork();	
+	pid = fork();
 	if (pid == -1)
 		perror("MY-SHELL");
 	if (pid == 0)

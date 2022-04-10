@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * funexit - exit function, integrated
+ * @buffer: received command
+ * Return: 0 not exit or 1 exit
  */
 int funexit(char *buffer)
 {
@@ -12,24 +12,24 @@ int funexit(char *buffer)
 	for (i = 0; buffer[i]; i++)
 	{
 		if (buffer[i] == ' ')
-	       		;
+			;
 		else
 		{
 			if (buffer[i] == exit[j])
-			{	
+			{
 				while (j < 5)
 				{
-					if (j == 4)
+				if (j == 4)
+				{
+					while (j < 5)
 					{
-						while (j < 5)
-						{
-							i++;
-							if (buffer[i] == '\0')
-								return (1);
-							if (buffer[i] != ' ')
-								return(0);
-						}
+					i++;
+					if (buffer[i] == '\0')
+						return (1);
+					if (buffer[i] != ' ')
+						return (0);
 					}
+				}
 					if (buffer[i] == exit[j])
 					{
 						i++;
@@ -41,7 +41,7 @@ int funexit(char *buffer)
 			}
 			else
 				return (0);
-		}		
+		}
 	}
 	return (0);
 }

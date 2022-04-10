@@ -11,11 +11,11 @@ char *getpath()
 
 	for (i = 0; environ[i]; i++)
 	{
-			if (_strncmp(environ[i], pathcompare, 5) == 0)
-			{
-				copy = strdup(environ[i]);
-				return(copy);
-			}
+		if (_strncmp(environ[i], pathcompare, 5) == 0)
+		{
+			copy = strdup(environ[i]);
+			return (copy);
+		}
 	}
 	copy = strdup(environ[i]);
 	return (copy);

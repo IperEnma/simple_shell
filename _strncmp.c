@@ -1,7 +1,8 @@
 /**
- * _strcmp - compares two strings.
+ * _strncmp - compares two strings.
  * @s1: string one
  * @s2: string two
+ * @n: bytes comparate
  * Return: 0
  */
 int _strncmp(char *s1, char *s2, int n)
