@@ -19,9 +19,6 @@ char *getpwd()
 				return (copy);
 			}
 		}
-		copy = strdup(environ[i]);
-		return (copy);
 	}
-	else
-		return ("ERROR");
+	return ("ERROR");
 }

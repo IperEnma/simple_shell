@@ -20,9 +20,7 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 		{
 			if (i != 0)
 				addnode(old_pwd, token_path);
-			token_path = strtok(NULL, "=");
-		}
-	}
+			token_path = strtok(NULL, "="); } }
 	path = getpath();
 	if (strcmp(path, "ERROR") != 0)
 	{
@@ -31,9 +29,7 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 		{
 			if (i == 1)
 				tokenizador(token_path, directorys, ":");
-			token_path = strtok(NULL, "=");
-		}
-	}
+			token_path = strtok(NULL, "="); } }
 	pwd_s = getpwd();
 	if (strcmp(pwd_s, "ERROR") != 0)
 	{
@@ -42,10 +38,11 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 		{
 			if (i != 0)
 				addnode(pwd, token_path);
-			token_path = strtok(NULL, "=");
-		}
-	}
-	free(old_pwd_s);
-	free(path);
-	free(pwd_s);
+			token_path = strtok(NULL, "="); } }
+	if (strcmp(old_pwd_s, "ERROR") != 0)
+		free(old_pwd_s);
+	if (strcmp(path, "ERROR") != 0)
+		free(path);
+	if (strcmp(pwd_s, "ERROR") != 0)
+		free(pwd_s);
 }
