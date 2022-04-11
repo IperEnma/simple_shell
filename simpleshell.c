@@ -4,7 +4,7 @@
  *
  * Return: 0 or status execve
  */
-int main(int argc, char **argv, char **env)
+int main(void)
 {
 	char *buffer = NULL;
 	size_t size = 0;
@@ -12,8 +12,6 @@ int main(int argc, char **argv, char **env)
 	int space = 0, status = 0, exitstatus = 0, slash = 0;
 	list_t *directorys = NULL, *pwd = NULL, *old_pwd = NULL, *input = NULL;
 
-	(void) argc;
-	(void) argv;
 	dirs(&directorys, &pwd, &old_pwd);
 	signal(SIGINT, function_signal);
 	while (EOF)

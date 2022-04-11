@@ -4,14 +4,14 @@
  * @buffer: received command
  * Return: 0 no env or 1 env
  */
-void funenvaux(char **env)
+void funenvaux()
 {
 	int i = 0;
-	if (env)
+	if (environ)
 	{
-		for (i = 0; env[i]; i++)
+		for (i = 0; environ[i]; i++)
 		{
-			dprintf(1, "%s\n", env[i]);
+			dprintf(1, "%s\n", environ[i]);
 		}
 	}
 }

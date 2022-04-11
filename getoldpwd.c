@@ -24,5 +24,5 @@ char *getoldpwd()
 	return (copy);
 	}
 	else
-		return (0);
+		return ("ERROR");
 }

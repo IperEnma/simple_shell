@@ -13,7 +13,7 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 	char *token_path = NULL;
 
 	old_pwd_s = getoldpwd();
-	if (old_pwd_s)
+	if (strcmp(old_pwd_s, "ERROR") != 0)
 	{
 		token_path = strtok(old_pwd_s, "=");
 		for (i = 0; token_path != NULL; i++)
@@ -24,7 +24,7 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 		}
 	}
 	path = getpath();
-	if (path)
+	if (strcmp(path, "ERROR") != 0)
 	{
 		token_path = strtok(path, "=");
 		for (i = 0; token_path != NULL; i++)
@@ -35,7 +35,7 @@ void dirs(list_t **directorys, list_t **pwd, list_t **old_pwd)
 		}
 	}
 	pwd_s = getpwd();
-	if (pwd_s)
+	if (strcmp(pwd_s, "ERROR") != 0)
 	{
 		token_path = strtok(pwd_s, "=");
 		for (i = 0; token_path != NULL; i++)

@@ -23,5 +23,5 @@ char *getpath()
 		return (copy);
 	}
 	else
-		return (0);
+		return ("ERROR");
 }
