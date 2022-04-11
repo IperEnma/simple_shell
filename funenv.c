@@ -15,7 +15,7 @@ int funenv(char *buffer)
 			m++;
 	}
 
-	exit = malloc(m);
+	exit = malloc((m) + 1);
 
 	for (i = 0; buffer[i]; i++)
 	{
