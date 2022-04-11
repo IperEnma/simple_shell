@@ -32,10 +32,10 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 		space = checkspace(buffer);
-		slash = checkslash(buffer);
 		if (space != 0)
 		{
 			tokenizador(buffer, &input, " ");
+			slash = checkslash(input->s);
 			if (slash == 1)
 				status = check_directory(input);
 			else
