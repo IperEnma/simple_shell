@@ -6,12 +6,12 @@
  */
 int funenv(char *buffer)
 {
-	char *exit;
+	char *exit, *compare = "env";
 	int i = 0, j = 0, m = 0;
 
 	for (i = 0; buffer[i]; i++)
 	{
-		if (buffer[i] != ' ')
+		if (buffer[i] != ' ' )
 			m++;
 	}
 
@@ -26,7 +26,7 @@ int funenv(char *buffer)
 		}
 	}
 	exit[j] = '\0';
-	if (strcmp(exit, "env") == 0)
+	if (_strncmp(exit, compare, 2) == 0)
 	{
 		free(exit);
 		return (1);

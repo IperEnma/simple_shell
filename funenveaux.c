@@ -15,7 +15,7 @@ int funenvaux(char *buffer)
 		{
 			for (i = 0; environ[i]; i++)
 			{
-				dprintf(1, "%s", environ[i]);
+				dprintf(1, "%s\n", environ[i]);
 			}
 			return (1);
 		}
