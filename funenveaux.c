@@ -7,9 +7,11 @@
 void funenvaux()
 {
 	int i = 0;
-
-	for (i = 0; environ[i]; i++)
+	if (environ)
 	{
-		dprintf(1, "%s\n", environ[i]);
+		for (i = 0; environ[i]; i++)
+		{
+			dprintf(1, "%s\n", environ[i]);
+		}
 	}
 }
