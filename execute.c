@@ -13,7 +13,7 @@ int command(list_t *head, char *path_concat)
 	char **arg = NULL;
 	
 	if (!head)
-		return (1);
+		return (0);
 	aux = head;
 	for (i = 0; aux; i++)
 		aux = aux->next;
