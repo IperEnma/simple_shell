@@ -12,6 +12,8 @@ char *_concat(list_t *dir, list_t *input)
 
 	for (j = 0; input->s[j]; j++)
 		;
+	if (!dir)
+		get_stat(input->s);
 	while (dir)
 	{
 		for (i = 0; dir->s[i]; i++)
@@ -20,9 +22,7 @@ char *_concat(list_t *dir, list_t *input)
 		if (!path_concat)
 			return ("Comando no encontrado");
 		for (i = 0; dir->s[i]; i++)
-		{
 			path_concat[i] = dir->s[i];
-		}
 		path_concat[i] = '/';
 		i++;
 		for (j = 0; input->s[j]; j++)
