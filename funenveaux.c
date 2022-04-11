@@ -12,7 +12,7 @@ int funenvaux(char *buffer)
 	if (status == 1)
 	{
 		for (i = 0; environ[i]; i++)
-			dprintf(1, "%s\n", environ[i]);
+			dprintf(1, "%s", environ[i]);
 		return (1);
 	}
 	return (0);
