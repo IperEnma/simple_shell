@@ -34,7 +34,7 @@ int main(void)
 			tokenizador(buffer, &input, " ");
 			slash = checkslash(input->s);
 			if (strcmp(input->s, "env") == 0)
-				funenvaux(env);
+				funenvaux();
 			else if (slash == 1)
 				status = check_directory(input);
 			else
