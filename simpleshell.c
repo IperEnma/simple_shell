@@ -38,14 +38,9 @@ int main(int argc, char **argv, char **env)
 			if (strcmp(input->s, "env") == 0)
 				funenvaux(env);
 			else if (slash == 1)
-			{	printf("aqui no\n");
 				status = check_directory(input);
-			}
 			else
-			{
-				printf("aqui tampoc\n");
 				status = check_files(directorys, input);
-			}
 			free_nodes(input);
 			input = NULL;
 		}}

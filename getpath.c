@@ -9,14 +9,19 @@ char *getpath()
 	char *pathcompare = "PATH=";
 	int i = 0;
 
-	for (i = 0; environ[i]; i++)
+	if (environ)
 	{
-		if (_strncmp(environ[i], pathcompare, 5) == 0)
+		for (i = 0; environ[i]; i++)
 		{
-			copy = strdup(environ[i]);
-			return (copy);
+			if (_strncmp(environ[i], pathcompare, 5) == 0)
+			{
+				copy = strdup(environ[i]);
+				return (copy);
+			}
 		}
+		copy = strdup(environ[i]);
+		return (copy);
 	}
-	copy = strdup(environ[i]);
-	return (copy);
+	else
+		return (0);
 }
