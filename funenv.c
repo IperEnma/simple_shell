@@ -15,7 +15,7 @@ int funenv(char *buffer)
 			m++;
 	}
 
-	exit = malloc((m) + 1);
+	exit = malloc(m);
 
 	for (i = 0; buffer[i]; i++)
 	{
@@ -27,7 +27,7 @@ int funenv(char *buffer)
 	}
 	exit[j] = '\0';
 
-	if (_strncmp(exit, compare, 3) == 0 && exit[3] == ' ')
+	if (strcmp(exit, compare) == 0)
 	{
 		free(exit);
 		return (1);

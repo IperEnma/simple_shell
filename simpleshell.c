@@ -25,8 +25,8 @@ int main(void)
 			if (isatty(STDIN_FILENO) == 1)
 				dprintf(1, "\n");
 			break; }
-		statusenv = funenvaux(buffer);
 		exitstatus = suprandbuild(buffer);
+		statusenv = funenvaux(buffer);
 		if (exitstatus == 1)
 		{	freeall(buffer, old_pwd, pwd, directorys);
 			return (status);
