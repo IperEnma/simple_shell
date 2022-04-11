@@ -25,28 +25,25 @@ int main(void)
 				dprintf(1, "\n");
 			break; }
 		exitstatus = suprandbuild(buffer);
-		if (exitstatus == 1) {	
+		if (exitstatus == 1)
+		{
 			freeall(buffer, old_pwd, pwd, directorys);
 			return (status); }
 		space = checkspace(buffer);
-		if (space != 0) {
+		if (space != 0)
+		{
 			tokenizador(buffer, &input, " ");
 			slash = checkslash(input->s);
 			if (strcmp(input->s, "env") == 0)
 				funenvaux();
 			else if (slash == 1)
-			{
-				dirs(&directorys, &pwd, &old_pwd);
 				status = check_directory(input);
-			}
 			else
 			{
 				dirs(&directorys, &pwd, &old_pwd);
-				status = check_files(directorys, input);
-			}
+				if (directorys)
+					status = check_files(directorys, input); }
 			free_nodes(input);
-			input = NULL;
-		}}
+			input = NULL; }}
 	freeall(buffer, old_pwd, pwd, directorys);
-	return (status);
-}
+	return (status); }
