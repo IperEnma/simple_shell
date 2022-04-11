@@ -35,7 +35,7 @@ int command(list_t *head, char *path_concat)
 		perror("MY-SHELL");
 	if (pid == 0)
 	{
-		if (execve(path_concat, arg, NULL) == -1)
+		if (execve(path_concat, arg, environ) == -1)
 		{
 			perror("");
 			exit(EXIT_FAILURE);

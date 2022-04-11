@@ -27,6 +27,10 @@ int funexit(char *buffer)
 	}
 	exit[j] = '\0';
 	if(strcmp(exit, "exit") == 0)
+	{
+		free(exit);
 		return (1);
+	}
+	free(exit);
 	return (0);
 }
