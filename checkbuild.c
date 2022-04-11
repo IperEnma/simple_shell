@@ -12,7 +12,7 @@ int checkbuild(char *buffer)
 	if (status == 1)
 	{
 		for (i = 0; environ[i]; i++)
-			printf("%s\n", environ[i]);
+			dprintf(1, "%s\n", environ[i]);
 	}
 	else
 	{
