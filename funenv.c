@@ -26,7 +26,8 @@ int funenv(char *buffer)
 		}
 	}
 	exit[j] = '\0';
-	if (_strncmp(exit, compare, 2) == 0)
+
+	if (_strncmp(exit, compare, 3) == 0)
 	{
 		free(exit);
 		return (1);

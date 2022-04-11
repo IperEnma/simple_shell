@@ -9,16 +9,15 @@ int funenvaux(char *buffer)
 	int status = 0, i = 0;
 	
 	status = funenv(buffer);
-	if (environ)
-	{	
-		if (status == 1)
+
+	if (status == 1)
+	{
+		for (i = 0; environ[i]; i++)
 		{
-			for (i = 0; environ[i]; i++)
-			{
-				dprintf(1, "%s\n", environ[i]);
-			}
-			return (1);
+			dprintf(1, "%s\n", environ[i]);
 		}
+		return (1);
 	}
+	
 	return (0);
 }
