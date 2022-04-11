@@ -14,9 +14,7 @@ int command(list_t *head, char *path_concat)
 
 	aux = head;
 	for (i = 0; aux; i++)
-	{
 		aux = aux->next;
-	}
 	i++;
 	arg = malloc(i * sizeof(char *));
 	if (!arg)
@@ -38,7 +36,10 @@ int command(list_t *head, char *path_concat)
 	if (pid == 0)
 	{
 		if (execve(path_concat, arg, NULL) == -1)
+		{
 			perror("");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
