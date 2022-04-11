@@ -25,7 +25,7 @@ int funenv(char *buffer)
 			j++;
 		}
 	}
-	exit[j] = '\0';
+	/** exit[j] = '\0';*/
 	if (strcmp(exit, "env") == 0)
 	{
 		free(exit);
