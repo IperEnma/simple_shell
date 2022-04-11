@@ -12,7 +12,7 @@ int command(list_t *head, char *path_concat)
 	list_t *aux = NULL;
 	char **arg = NULL;
 	
-	if (!head->s)
+	if (!head)
 		return (1);
 	aux = head;
 	for (i = 0; aux; i++)

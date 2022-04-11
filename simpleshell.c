@@ -41,8 +41,7 @@ int main(void)
 			else
 			{
 				dirs(&directorys, &pwd, &old_pwd);
-				if (directorys)
-					status = check_files(directorys, input); }
+				status = check_files(directorys, input); }
 			free_nodes(input);
 			input = NULL; }}
 	freeall(buffer, old_pwd, pwd, directorys);
