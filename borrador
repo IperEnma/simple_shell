@@ -1,0 +1,35 @@
+1 #include "shell.h"
+   2 
+   3 /**
+   4 * checkbuild - checks if the command is a buildin
+   5 * @arv: array of arguments
+   6 * Return: pointer to function that takes arv and returns void
+   7 */
+   8 void(*checkbuild(char **arv))(char **arv)
+   9 {
+  10     int i, j;
+  11     mybuild T[] = {
+  12         {"exit", exitt},
+  13         {"env", env},
+  14         {"setenv", _setenv},
+  15         {"unsetenv", _unsetenv},
+  16         {NULL, NULL}
+  17     };
+  18 
+  19     for (i = 0; T[i].name; i++)
+  20     {
+  21         j = 0;
+  22         if (T[i].name[j] == arv[0][j])
+  23         {
+  24             for (j = 0; arv[0][j]; j++)
+  25             {
+  26                 if (T[i].name[j] != arv[0][j])
+  27                     break;
+  28             }
+  29             if (!arv[0][j])
+  30                 return (T[i].func);
+  31         }
+  32     }
+  33     return (0);
+  34 }
+~         
