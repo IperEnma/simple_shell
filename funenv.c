@@ -6,7 +6,7 @@
  */
 int funenv(char *buffer)
 {
-	char *exit, *compare = "env";
+	char *exit, *compare = "env", *space = "env ";
 	int i = 0, j = 0, m = 0;
 
 	for (i = 0; buffer[i]; i++)
@@ -27,8 +27,8 @@ int funenv(char *buffer)
 	}
 	exit[j] = '\0';
 
-	if (strcmp(exit, compare) == 0)
-	{
+	if (strcmp(exit, compare) == 0 || strcmp(exit, space) == 0)
+	{	
 		free(exit);
 		return (1);
 	}

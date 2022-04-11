@@ -9,7 +9,7 @@ int main(void)
 	char *buffer = NULL;
 	size_t size = 0;
 	ssize_t bytes = 0;
-	int space = 0, status = 0, exitstatus = 0, slash = 0, statusenv;
+	int space = 0, status = 0, exitstatus = 0, slash = 0;
 	list_t *directorys = NULL, *pwd = NULL, *old_pwd = NULL, *input = NULL;
 
 	dirs(&directorys, &pwd, &old_pwd);
@@ -26,17 +26,17 @@ int main(void)
 				dprintf(1, "\n");
 			break; }
 		exitstatus = suprandbuild(buffer);
-		statusenv = funenvaux(buffer);
 		if (exitstatus == 1)
 		{	freeall(buffer, old_pwd, pwd, directorys);
-			return (status);
-		}
+			return (status); }
 		space = checkspace(buffer);
-		if (space != 0 && statusenv != 1)
+		if (space != 0)
 		{
 			tokenizador(buffer, &input, " ");
 			slash = checkslash(input->s);
-			if (slash == 1)
+			if (strcmp(input->s, "env") == 0)
+				funenvaux();
+			else if (slash == 1)
 				status = check_directory(input);
 			else
 				status = check_files(directorys, input);

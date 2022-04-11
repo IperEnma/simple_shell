@@ -47,5 +47,5 @@ int checkbuild(char *buffer);
 void suprtab(char *buffer);
 int _strncmp(char *s1, char *s2, int i);
 int suprandbuild(char *buffer);
-int funenvaux(char *buffer);
+void funenvaux();
 #endif
