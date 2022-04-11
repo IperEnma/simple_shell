@@ -12,7 +12,6 @@ int main(void)
 	int space = 0, status = 0, exitstatus = 0, slash = 0;
 	list_t *directorys = NULL, *pwd = NULL, *old_pwd = NULL, *input = NULL;
 
-	dirs(&directorys, &pwd, &old_pwd);
 	signal(SIGINT, function_signal);
 	while (EOF)
 	{
@@ -33,6 +32,7 @@ int main(void)
 		if (space != 0) {
 			tokenizador(buffer, &input, " ");
 			slash = checkslash(input->s);
+			dirs(&directorys, &pwd, &old_pwd);
 			if (strcmp(input->s, "env") == 0)
 				funenvaux();
 			else if (slash == 1)
