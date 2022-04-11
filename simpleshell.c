@@ -23,7 +23,7 @@ int main(void)
 		if (bytes == -1)
 		{
 			if (isatty(STDIN_FILENO) == 1)
-				printf("\n");
+				dprintf(1, "\n");
 			break; }
 		statusenv = funenvaux(buffer);
 		exitstatus = suprandbuild(buffer);
