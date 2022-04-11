@@ -29,7 +29,7 @@ int main(void)
 		exitstatus = suprandbuild(buffer);
 		if (exitstatus == 1)
 		{	freeall(buffer, old_pwd, pwd, directorys);
-			exit(EXIT_SUCCESS);
+			return(status);
 		}
 		space = checkspace(buffer);
 		if (space != 0)
