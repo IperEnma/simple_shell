@@ -32,13 +32,18 @@ int main(void)
 		if (space != 0) {
 			tokenizador(buffer, &input, " ");
 			slash = checkslash(input->s);
-			dirs(&directorys, &pwd, &old_pwd);
 			if (strcmp(input->s, "env") == 0)
 				funenvaux();
 			else if (slash == 1)
+			{
+				dirs(&directorys, &pwd, &old_pwd);
 				status = check_directory(input);
+			}
 			else
+			{
+				dirs(&directorys, &pwd, &old_pwd);
 				status = check_files(directorys, input);
+			}
 			free_nodes(input);
 			input = NULL;
 		}}
