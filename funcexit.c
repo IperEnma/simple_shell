@@ -23,6 +23,7 @@ int funexit(char *buffer)
 		{
 			exit[j] = buffer[i];
 			j++;
+		}
 
 	}
 	exit[j] = '\0';
