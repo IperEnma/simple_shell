@@ -10,6 +10,13 @@ int check_files(list_t *directorys, list_t *input)
 	char *path_concat = NULL;
 	int status = 0;
 
+	if (!directorys)
+	{
+		get_stat(input->s);
+		perror("");
+		return (0);
+	}
+
 	path_concat = _concat(directorys, input);
 	if (strcmp(path_concat, "ERROR") == 0)
 		perror("");

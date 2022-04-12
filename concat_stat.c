@@ -12,8 +12,6 @@ char *_concat(list_t *dir, list_t *input)
 
 	for (j = 0; input->s[j]; j++)
 		;
-	if (!dir)
-		get_stat(input->s);
 	while (dir)
 	{
 		for (i = 0; dir->s[i]; i++)
