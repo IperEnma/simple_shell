@@ -8,7 +8,7 @@ void free_nodes(list_t *head)
 {
 	list_t *aux = head;
 	list_t *auxfree;
-	
+
 	if (head)
 	{
 		while (aux)

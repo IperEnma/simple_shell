@@ -23,10 +23,10 @@ int funexit(char *buffer)
 		{
 			exit[j] = buffer[i];
 			j++;
-		}
+
 	}
 	exit[j] = '\0';
-	if(strcmp(exit, "exit") == 0)
+	if (strcmp(exit, "exit") == 0)
 	{
 		free(exit);
 		return (1);

@@ -11,7 +11,7 @@ int funenv(char *buffer)
 
 	for (i = 0; buffer[i]; i++)
 	{
-		if (buffer[i] != ' ' )
+		if (buffer[i] != ' ')
 			m++;
 	}
 
@@ -28,7 +28,7 @@ int funenv(char *buffer)
 	exit[j] = '\0';
 
 	if (strcmp(exit, compare) == 0 || strcmp(exit, space) == 0)
-	{	
+	{
 		free(exit);
 		return (1);
 	}

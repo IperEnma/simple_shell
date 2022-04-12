@@ -11,7 +11,7 @@ int command(list_t *head, char *path_concat)
 	int i = 0, status = 0;
 	list_t *aux = NULL;
 	char **arg = NULL;
-	
+
 	if (!head)
 		return (0);
 	aux = head;
@@ -41,7 +41,7 @@ int command(list_t *head, char *path_concat)
 		{
 			perror("");
 			exit(EXIT_FAILURE);
-		} 
+		}
 	}
 	else
 		wait(&status);
